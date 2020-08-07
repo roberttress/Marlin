@@ -437,11 +437,11 @@
 //#define TEMP_SENSOR_1_AS_REDUNDANT
 #define MAX_REDUNDANT_TEMP_SENSOR_DIFF 10
 
-#define TEMP_RESIDENCY_TIME      5  // (seconds) Time to wait for hotend to "settle" in M109
+#define TEMP_RESIDENCY_TIME      10  // (seconds) Time to wait for hotend to "settle" in M109
 #define TEMP_WINDOW              1  // (°C) Temperature proximity for the "temperature reached" timer
 #define TEMP_HYSTERESIS          3  // (°C) Temperature proximity considered "close enough" to the target
 
-#define TEMP_BED_RESIDENCY_TIME  5  // (seconds) Time to wait for bed to "settle" in M190
+#define TEMP_BED_RESIDENCY_TIME  10  // (seconds) Time to wait for bed to "settle" in M190
 #define TEMP_BED_WINDOW          1  // (°C) Temperature proximity for the "temperature reached" timer
 #define TEMP_BED_HYSTERESIS      3  // (°C) Temperature proximity considered "close enough" to the target
 
@@ -477,7 +477,7 @@
 
 // Comment the following line to disable PID and enable bang-bang.
 #define PIDTEMP
-#define BANG_MAX 204     // Limits current to nozzle while in bang-bang mode; 255=full current
+#define BANG_MAX 255     // Limits current to nozzle while in bang-bang mode; 255=full current
 #define PID_MAX BANG_MAX // Limits current to nozzle while PID is active (see PID_FUNCTIONAL_RANGE below); 255=full current
 #define PID_K1 0.95      // Smoothing factor within any PID loop
 
@@ -489,10 +489,20 @@
 
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
 
-  // E3D - Autotune 16.07.2020 (80% Power, no overshoot / mit oder ohne Fan macht kaum einen Unterschied)
-  #define DEFAULT_Kp 9.65
-  #define DEFAULT_Ki 0.46
-  #define DEFAULT_Kd 50.33
+  // E3D - Autotune 03.08.2020 (100% Power, no overshoot / ohne Fan / neuer T-Sensor und 40W Heater)
+  #define DEFAULT_Kp 12.81
+  #define DEFAULT_Ki 0.65
+  #define DEFAULT_Kd 62.79
+  
+  // E3D - Autotune 02.08.2020 (80% Power, no overshoot / ohne Fan / neuer T-Sensor und 40W Heater)
+  //#define DEFAULT_Kp 12.65
+  //#define DEFAULT_Ki 0.65
+  //#define DEFAULT_Kd 61.98
+  
+  // E3D - Autotune 16.07.2020 (80% Power, no overshoot / mit oder ohne Fan macht kaum einen Unterschied / 50W)
+  //#define DEFAULT_Kp 9.65
+  //#define DEFAULT_Ki 0.46
+  //#define DEFAULT_Kd 50.33
   
   // E3D - Autotune 26.04.2020
   //#define DEFAULT_Kp 8.9
@@ -986,7 +996,7 @@
  *
  * Specify a Probe position as { X, Y, Z }
  */
-#define NOZZLE_TO_PROBE_OFFSET { -25, 2, -1.00 }
+#define NOZZLE_TO_PROBE_OFFSET { -25, 2, -1.04 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
