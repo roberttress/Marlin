@@ -557,10 +557,15 @@
   //#define MIN_BED_POWER 0
   //#define PID_BED_DEBUG // Sends debug data to the serial port.
 
+  // FYSETC 300x300 290W - Autotune 02.01.2022 (w/ insulation + Prusa Sheet + 40% Hotend Lüfter)
+  #define DEFAULT_bedKp 35.88
+  #define DEFAULT_bedKi 1.90
+  #define DEFAULT_bedKd 452.62
+  
   // FYSETC 300x300 290W - Autotune 09.04.2020 (w/ insulation)
-  #define DEFAULT_bedKp 28.75
-  #define DEFAULT_bedKi 1.40
-  #define DEFAULT_bedKd 393.82
+  //#define DEFAULT_bedKp 28.75
+  //#define DEFAULT_bedKi 1.40
+  //#define DEFAULT_bedKd 393.82
   
   // FYSETC 300x300 290W - Autotune 11.02.2020 (w/o insulation)
   // #define DEFAULT_bedKp 23.47
@@ -1016,7 +1021,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -27, 8, -0.80 }
+#define NOZZLE_TO_PROBE_OFFSET { -27, 8, -0.30 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
