@@ -40,7 +40,7 @@
 // Use one of these or SDCard-based Emulation will be used
 #if NO_EEPROM_SELECTED
   //#define SRAM_EEPROM_EMULATION                 // Use BackSRAM-based EEPROM emulation
-  #define FLASH_EEPROM_EMULATION                  // Use Flash-based EEPROM emulation
+  //#define FLASH_EEPROM_EMULATION                  // Use Flash-based EEPROM emulation
 #endif
 
 #if ENABLED(FLASH_EEPROM_EMULATION)
@@ -231,50 +231,10 @@
 // Temperature Sensors
 // Use ADC pins without pullup for sensors that don't need a pullup.
 //
-#if TEMP_SENSOR_0_IS_AD8495 || TEMP_SENSOR_0 == 20
-  #define TEMP_0_PIN                        PF8
-#else
-  #define TEMP_0_PIN                        PF4   // T1 <-> E0
-#endif
-#if TEMP_SENSOR_1_IS_AD8495 || TEMP_SENSOR_1 == 20
-  #define TEMP_1_PIN                        PF9
-#else
-  #define TEMP_1_PIN                        PF5   // T2 <-> E1
-#endif
-#if TEMP_SENSOR_2_IS_AD8495 || TEMP_SENSOR_2 == 20
-  #define TEMP_2_PIN                        PF10
-#else
-  #define TEMP_2_PIN                        PF6   // T3 <-> E2
-#endif
-#if TEMP_SENSOR_BED_IS_AD8495 || TEMP_SENSOR_BED == 20
-  #define TEMP_BED_PIN                      PF7
-#else
-  #define TEMP_BED_PIN                      PF3   // T0 <-> Bed
-#endif
-
-#if TEMP_SENSOR_PROBE && !defined(TEMP_PROBE_PIN)
-  #if TEMP_SENSOR_PROBE_IS_AD8495 || TEMP_SENSOR_PROBE == 20
-    #if HOTENDS == 2
-      #define TEMP_PROBE_PIN                PF10
-    #elif HOTENDS < 2
-      #define TEMP_PROBE_PIN                PF9
-    #endif
-  #else
-    #if HOTENDS == 2
-      #define TEMP_PROBE_PIN          TEMP_2_PIN
-    #elif HOTENDS < 2
-      #define TEMP_PROBE_PIN          TEMP_1_PIN
-    #endif
-  #endif
-#endif
-
-#if TEMP_SENSOR_CHAMBER && !defined(TEMP_CHAMBER_PIN)
-  #if TEMP_SENSOR_CHAMBER_IS_AD8495 || TEMP_SENSOR_CHAMBER == 20
-    #define TEMP_CHAMBER_PIN                PF10
-  #else
-    #define TEMP_CHAMBER_PIN          TEMP_2_PIN
-  #endif
-#endif
+#define TEMP_0_PIN                          PF4   // T1 <-> E0
+#define TEMP_1_PIN                          PF5   // T2 <-> E1
+#define TEMP_PROBE_PIN                      PF6   // T3 <-> E2
+#define TEMP_BED_PIN                        PF3   // T0 <-> Bed
 
 //
 // Heaters
