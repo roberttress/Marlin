@@ -750,7 +750,7 @@
  */
 #define CASE_LIGHT_ENABLE
 #if ENABLED(CASE_LIGHT_ENABLE)
-  #define CASE_LIGHT_PIN HEATER_2_PIN         // Override the default pin if needed
+  #define CASE_LIGHT_PIN HEATER_1_PIN         // Override the default pin if needed
   #define INVERT_CASE_LIGHT false             // Set true if Case Light is ON when pin is LOW
   #define CASE_LIGHT_DEFAULT_ON true          // Set default power-up state on
   #define CASE_LIGHT_DEFAULT_BRIGHTNESS 255   // Set default power-up brightness (0-255, requires PWM pin)
@@ -3951,11 +3951,11 @@
   //#define MAIN_MENU_ITEM_2_CONFIRM
 
   #define MAIN_MENU_ITEM_3_DESC "Bed PSU on"
-  #define MAIN_MENU_ITEM_3_GCODE "M42 P63 S255"
+  #define MAIN_MENU_ITEM_3_GCODE "M42 P43 S255" // = HEATER_2_PIN
   //#define MAIN_MENU_ITEM_3_CONFIRM
 
   #define MAIN_MENU_ITEM_4_DESC "Bed PSU off"
-  #define MAIN_MENU_ITEM_4_GCODE "M42 P63 S0"
+  #define MAIN_MENU_ITEM_4_GCODE "M42 P43 S0"   // = HEATER_2_PIN
   //#define MAIN_MENU_ITEM_4_CONFIRM
 
   //#define MAIN_MENU_ITEM_5_DESC "Home & Info"

@@ -241,12 +241,8 @@
 // Heaters
 //
 #define HEATER_0_PIN                        PB1   // Heater0
-#define HEATER_1_PIN                        PD14  // Heater1
-#if TEMP_SENSOR_CHAMBER && HOTENDS < 3
-  #define HEATER_CHAMBER_PIN                PB0   // Heater2
-#else
-  #define HEATER_2_PIN                      PB0   // Heater2
-#endif
+#define HEATER_1_PIN                        PD14  // Heater1 --> wird in Configuration_adv.h mit CASE_LIGHT_PIN überschrieben
+#define HEATER_2_PIN                        PB0   // = M42 P43 
 #define HEATER_BED_PIN                      PD12  // Hotbed
 
 //
