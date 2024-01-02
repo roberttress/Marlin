@@ -676,35 +676,20 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
+    // E3D und Trianglelab CHC ohne Printing Fan
+    #define DEFAULT_Kp 17.58
+    #define DEFAULT_Ki 2.75
+    #define DEFAULT_Kd 28.13
+        
     // E3D - Autotune 03.08.2020 (100% Power, no overshoot / ohne Fan / neuer T-Sensor und 40W Heater)
-    #define DEFAULT_Kp 12.81
-    #define DEFAULT_Ki 0.65
-    #define DEFAULT_Kd 62.79
-  
-    // E3D - Autotune 02.08.2020 (80% Power, no overshoot / ohne Fan / neuer T-Sensor und 40W Heater)
-    //#define DEFAULT_Kp 12.65
+    //#define DEFAULT_Kp 12.81
     //#define DEFAULT_Ki 0.65
-    //#define DEFAULT_Kd 61.98
+    //#define DEFAULT_Kd 62.79
   
     // E3D - Autotune 16.07.2020 (80% Power, no overshoot / mit oder ohne Fan macht kaum einen Unterschied / 50W)
     //#define DEFAULT_Kp 9.65
     //#define DEFAULT_Ki 0.46
     //#define DEFAULT_Kd 50.33
-  
-    // E3D - Autotune 26.04.2020
-    //#define DEFAULT_Kp 8.9
-    //#define DEFAULT_Ki 0.42
-    //#define DEFAULT_Kd 46.81
-  
-    // BIQU 2 in 1 out - Autotune 09.02.2020
-    //#define DEFAULT_Kp 8.93
-    //#define DEFAULT_Ki 0.50
-    //#define DEFAULT_Kd 39.83
-  
-    // BIQU 2 in 1 out - Autotune 20.11.2019 (w/o FAN)
-    //#define DEFAULT_Kp 13.64
-    //#define DEFAULT_Ki 1.09
-    //#define DEFAULT_Kd 42.79
   #endif
 #else
   #define BANG_MAX 255    // Limit hotend current while in bang-bang mode; 255=full current
@@ -1814,8 +1799,8 @@
 // @section geometry
 
 // The size of the printable area
-#define X_BED_SIZE 296
-#define Y_BED_SIZE 309
+#define X_BED_SIZE 292
+#define Y_BED_SIZE 290
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
@@ -1823,7 +1808,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 370
+#define Z_MAX_POS 352
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
 //#define J_MIN_POS 0
@@ -2273,7 +2258,7 @@
 #endif
 
 // Homing speeds (linear=mm/min, rotational=°/min)
-#define HOMING_FEEDRATE_MM_M { (50*60), (50*60), (8*60) }
+#define HOMING_FEEDRATE_MM_M { (50*60), (50*60), (5*60) }
 
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS
